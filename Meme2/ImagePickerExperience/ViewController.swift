@@ -141,7 +141,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
    
     func save(image: UIImage) {
             // Create the meme
-        _ = MemeModel(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, imageView: imageView.image!, memedImage: image)
+        let meme = MemeModel(topTextField: topTextField.text!, bottomTextField: bottomTextField.text!, imageView: imageView.image!, memedImage: image)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+               appDelegate.memes.append(meme)
+               dismiss(animated: true, completion: nil)
     }
     func toolbar(isHidden: Bool){
         topToolBar.isHidden = isHidden
